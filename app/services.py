@@ -7,6 +7,10 @@ from . import schemas
 
 
 def fetch_ticketmaster_event(event_id: str) -> Optional[schemas.EventData]:
+    """
+    Call Ticketmaster API, extract nested data for a specific event,
+    and return a clean Pydantic EventData object.
+    """
     url = f"https://app.ticketmaster.com/discovery/v2/events/{event_id}.json"
     params = {"apikey": settings.TM_API_KEY}
 
